@@ -20,6 +20,9 @@ There are also fifteen LilyPond files to create the inventions separately: `inve
 ## Source material
 I have attempted to create an "uneditted" version of the Inventions, so I used one of Bach's maniscripts, but since I am not an expert on Bach's works I referenced an early edition.  I was not prepared for the number of discrepencies between the two of them, so I also looked at a later edition.  These are documented in the `includes\header-paper.ily` file.
 
+## Ornamentation
+The ornamentation varied the most between sources.  I looked to the manuscript the most for the final say.  Realization of these ornaments in the MIDI files was done mostly by the `articulate.ly` function but some ornaments such as down- and up-mordants had to be done by hand.  In a few places, `articulate.ly` realized trills too fast and these were also manually adjusted.
+
 ## Licensing
 This work is licensed under CC BY-SA 4.0. To view a copy of this license, visit [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/).
 
