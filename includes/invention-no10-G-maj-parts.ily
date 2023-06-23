@@ -86,7 +86,7 @@ leftHand = \relative d {
   
   \barNumberCheck 17
   b4.\prall g r4 r8 |
-  c,4.~\mordent c8 e d  fs, g a |
+  c,4.~\mordent c8 d e  fs, g a |
   b4.~\mordent b8 c d  e, fs g |
   a8 c e  a e c  a b c |
   d fs a  d a fs  d e fs |
