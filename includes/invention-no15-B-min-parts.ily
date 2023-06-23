@@ -17,7 +17,7 @@ global = {
 rightHand = \relative b' {
   \global
   r8 b16 as b8 fs g\prall fs b fs |
-  fs8\prall e cs' e,  e\prall d16 cs  d e fs d |
+  fs8\prall e cs' e,  e\prall d16 cs  d e fs e |
   fs8\mordent r r16 a gs a  b cs b gs  a b a fs |
   gs16 a gs fs  es gs fs es  cs'8 fs,16 es  fs a gs b |
   a16 b cs d  gs,8.\prall fs16  fs8  fs'16 es  fs8 cs |
