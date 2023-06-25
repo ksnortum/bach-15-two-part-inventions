@@ -53,7 +53,7 @@ rightHand = \relative c'' {
   bf16 af g f  e f g af  bf c df bf |
   c16 bf af g  af8 f  df'4~ |
   df16 c bf a  bf8 g  e'4~ |
-  e16 f g af  bf8 g16 ef  df8 c |
+  e16 f g af  bf8 g16 e  df8 c |
   bf16 af g af  bf df c bf  af g f e |
   \tag layout { \after 8*7/8 \turn c'8.\mordent df16 g,4.\downprall f8 | }
   \tag midi { 
@@ -77,10 +77,10 @@ leftHand = \relative f, {
   \clef bass bf16 af g af  bf df c bf  af g f e |
   
   \barNumberCheck 9
-  af8 f~ f16 g af g  f ef df c |
+  af8 f~ f16 g af g  f ef d c |
   b8 af'~ af16 g f ef  d c b a |
   g16 a b c  d ef f d  c b c b |
-  ef8 c'~ c16 d ef d  c bf af g |
+  ef8 c'~ c16 d ef d  c bf a g |
   fs8 ef'~ ef16 d c bf  a g fs e |
   d16 e fs g  a bf c a  g fs g fs |
   g16 a b c  d ef f d  ef c d ef |

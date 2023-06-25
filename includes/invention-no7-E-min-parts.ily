@@ -52,7 +52,7 @@ leftHand = \relative e {
   b'8 b, r4 r8 fs''16 e  ds cs ds b |
   e8 e, r4 r8 e'16 d  c b c a |
   d8 d, r4 r8 d'16 c  b a b g |
-  c8. b16  fs e d c  fs8. e16 d c b a |
+  c8. b16  a g fs e  a8. g16 fs e d c |
   b8. c16  b a g fs  e8 c' d d, |
   g4 r r8 g16 a  b a b g |
   d'16 cs d e  fs e fs d  g fs g a  b a b fs |
@@ -61,7 +61,7 @@ leftHand = \relative e {
   g16 fs g e  a8 a, d d, r4 |
   r8 a''16 g  fs e fs d  g a g fs  e d e cs |
   fs8 as, b g  fs4 r8 b'16 a |
-  g16 fs g e  e'8. d16  cs8 g'16 fs  e d e cs |
+  g16 fs g e  d'8. e16  cs8 g'16 fs  e d e cs |
   d16 cs d b  fs'8 fs,  b16 c b a  gs fs gs e |
   a16 b a g  fs e fs d  g a g fs  e d e cs |
   ds16 cs ds b  e ds e e, b'2~\startTrillSpan |

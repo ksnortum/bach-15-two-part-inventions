@@ -17,7 +17,7 @@ rightHand = \relative d' {
   g16 f e d  c bf' a g  d' c bf d  c bf a c |
   bf16 a g a  bf c d e  f8 d r d |
   ef16 d c d  ef8 e  f16 e d e  f8 fs |
-  g8 bf,16 c  d ef f d  ef d c bf  a g' f ef |
+  g8 d16 c  d ef f d  ef d c bf  a g' f ef |
   d16 c d e  f g a f  g f e d  cs bf' a g |
   f4~\mordent f16 g a bf  cs, d e d  cs8 c |
   b16 c d c  b8 bf  a d4\mordent cs8\prall |
