@@ -23,6 +23,9 @@ I have attempted to create an "uneditted" version of the Inventions, so I used o
 ## Ornamentation
 The ornamentation varied the most between sources.  I looked to the manuscript the most for the final say.  Realization of these ornaments in the MIDI files was done mostly by the `articulate.ly` function but some ornaments such as down- and up-mordants had to be done by hand.  In a few places, `articulate.ly` realized trills too fast and these were also manually adjusted.
 
+## Thanks
+Thanks to @phmcarty for his contributions of proofreading.
+
 ## Licensing
 This work is licensed under CC BY-SA 4.0. To view a copy of this license, visit [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/).
 
