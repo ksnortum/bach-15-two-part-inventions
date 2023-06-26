@@ -3,8 +3,6 @@
 \version "2.24.0"
 \language "english"
 
-% \include "global-variables.ily"
-
 global = {
   \time 3/8
   \key d \major
@@ -13,13 +11,12 @@ global = {
 
 rightHand = \relative d' {
   \global
+  \set Score.tempoHideNote = ##t
   \partial 8 { d16 e }
   fs16( e g fs e d) |
   a'16( g fs e fs d) |
   a'8( b cs16\mordent d) |
-  cs8\prall \tag layout { \appoggiatura { b8 } a }
-            \tag midi   { b32 a16. }
-            cs16 d |
+  cs8\prall \appoggiatura { b8 } a cs16 d |
   e16( cs fs d cs b) |
   e16( cs d b a gs) |
   e'16( cs fs d cs b) |
@@ -71,9 +68,7 @@ rightHand = \relative d' {
   fs16( e g fs e d) |
   a'16( g fs e fs d) |
   a'8 b cs16\mordent d |
-  cs8\prall \tag layout { \appoggiatura { b8 } a }
-            \tag midi   { b32 a16. }
-            d8 |
+  cs8\prall \appoggiatura { b8 } a d8 |
   d8 d, d' |
   d8 d, d' |
   
@@ -89,8 +84,7 @@ rightHand = \relative d' {
   
   \barNumberCheck 57
   b'8. cs,16 d cs |
-  d16[ g] \tag layout { e8.\parenthesize \prall d16 | }
-          \tag midi   { fs32 e \tuplet 3/2 { fs32 e fs } e16 d }
+  \tempo 4. = 52 d16[ g] \tempo 4. = 46 e8.\parenthesize \prall d16 |
   d4.\fermata |
   \bar "|."
 }
@@ -205,7 +199,6 @@ inventionThreeMusic = \score {
   \header {
     opus = "BWV 774"
   }
-  \keepWithTag layout
   \new PianoStaff \with { 
     instrumentName = \markup \huge "No. 3"
   } <<
@@ -220,13 +213,12 @@ inventionThreeMusic = \score {
 inventionThreeMidi = \book {
   \bookOutputName "invention-no3-D-maj"
   \score { 
-    \articulate {
-      \keepWithTag midi
+    \articulate <<
       <<
         \new Staff = "upper" << \rightHand \dynamics >>
         \new Staff = "lower" << \leftHand \dynamics >>
       >>
-    }
+    >>
     \midi {
       \tempo 4. = 60
     }

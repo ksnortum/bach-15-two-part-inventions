@@ -3,8 +3,6 @@
 \version "2.24.0"
 \language "english"
 
-% \include "global-variables.ily"
-
 global = {
   \time 3/8
   \key d \minor
@@ -13,6 +11,7 @@ global = {
 
 rightHand = \relative d' {
   \global
+  \set Score.tempoHideNote = ##t
   d16 e f g a bf |
   cs, bf' a g f e |
   f8 a d |
@@ -35,10 +34,19 @@ rightHand = \relative d' {
   \barNumberCheck 17
   f16 g g8.\parenthesize \prall f16 |
   f8 c' c |
-  c4.~\startTrillSpan |
-  c4.~
-  c4.~
-  c16\stopTrillSpan bf a g f e |
+  \tag layout { 
+    c4.~\startTrillSpan |
+    c4.~ |
+    c4.~ |
+    c16\stopTrillSpan 
+  }
+  \tag midi {
+    \repeat unfold 6 { c32 d } |
+    \repeat unfold 6 { c32 d } |
+    \repeat unfold 5 { c32 d } c16~ |
+    c16
+  }
+    bf a g f e |
   c'16 d, e fs g a |
   bf16 a g f e d |
   
@@ -73,7 +81,7 @@ rightHand = \relative d' {
   d16 b cs8.\parenthesize \prall d16 |
   d16 c bf a g f |
   bf16 cs, d e f g |
-  a16 d f,8 e16 d |
+  \tempo 4. = 68 a16 d f,8 \tempo 4. = 60 e16 d |
   d4.\fermata |
   \bar "|."
 }
@@ -115,14 +123,25 @@ leftHand = \relative d {
   f8 f' d |
   b8 gs e |
   a16 gs a b c d |
-  e4.~\startTrillSpan |
-  e4.~ |
-  e4.~ |
-  e4.~ |
-  
-  \barNumberCheck 33
-  e4.~ |
-  e8\stopTrillSpan e' d |
+  \tag layout {
+    e4.~\startTrillSpan |
+    e4.~ |
+    e4.~ |
+    e4.~ |
+    
+    \barNumberCheck 33
+    e4.~ |
+    e8\stopTrillSpan
+  } 
+  \tag midi {
+    \repeat unfold 6 { e32 f } |
+    \repeat unfold 6 { e32 f } |
+    \repeat unfold 6 { e32 f } |
+    \repeat unfold 6 { e32 f } |
+    \repeat unfold 5 { e32 f } e16~ |
+    e8
+  }
+    e' d |
   c8 b a |
   d8 e f |
   d8 e e, |
@@ -163,14 +182,14 @@ inventionFourMusic = \score {
 
 inventionFourMidi = \book {
   \bookOutputName "invention-no4-D-min"
-  \score { 
-    \articulate {
+  \score {
+    \articulate <<
       \keepWithTag midi
       <<
         \new Staff = "upper" \rightHand
         \new Staff = "lower" \leftHand
       >>
-    }
+    >>
     \midi {
       \tempo 4. = 76
     }

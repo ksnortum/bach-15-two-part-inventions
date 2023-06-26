@@ -11,6 +11,7 @@ global = {
 
 rightHand = \relative f' {
   \global
+  \set Score.tempoHideNote = ##t
   r8 f8 a f c' f, |
   f'8 e16 d  c d c bf  a bf a g |
   \parenthesize f8 a c a f' c |
@@ -51,8 +52,8 @@ rightHand = \relative f' {
   a16 bf a g  f8 f'16 e f8 a, |
   
   \barNumberCheck 33
-  bf8 f' a, f' g, e' |
-  <a, c f>4 r r |
+  bf8 f' \tempo 4 = 105 a, f' \tempo 4 = 90 g, e' |
+  \tempo 4 = 40 <a, c f>4\fermata \tempo 4 = 120 r r |
   \bar "|."
 }
 
@@ -100,14 +101,13 @@ leftHand = \relative f {
   
   \barNumberCheck 33
   g16 a g f  c' bf a bf  c8 c, |
-  f4 r r |
+  f4\fermata r r |
 }
 
 inventionEightMusic = \score { 
   \header {
     opus = "BWV 779"
   }
-  \keepWithTag layout
   \new PianoStaff \with { 
     instrumentName = \markup \huge "No. 8"
   } <<
@@ -120,7 +120,6 @@ inventionEightMusic = \score {
 inventionEightMidi = \book {
   \bookOutputName "invention-no8-F-maj"
   \score { 
-    \keepWithTag midi
     <<
       \new Staff = "upper" \rightHand
       \new Staff = "lower" \leftHand

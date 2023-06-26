@@ -43,10 +43,10 @@ rightHand = \relative g' {
     b2.~ b4.~ |
   }
   \tag midi {
-    \repeat unfold 9 { c16 d } |
+    \repeat unfold 9 { c16\pp d } |
     \repeat unfold 7 { c16 d } c4 |
     \repeat unfold 9 { b16 c } |
-    \repeat unfold 7 { b16 c } b4~ |
+    \repeat unfold 7 { b16 c } b4~\mf |
   }
   b8\stopTrillSpan e d  c d b  a b g |
   
@@ -99,8 +99,8 @@ leftHand = \relative d {
     c2.~ c4.~ |
   }
   \tag midi {
-    \repeat unfold 9 { c16 d } |
-    \repeat unfold 7 { c16 d } c4~ |
+    \repeat unfold 9 { c16\pp d } |
+    \repeat unfold 7 { c16 d } c4~\mf |
   }
   c8\stopTrillSpan d fs  a fs d  c b a |
   b8 g b  d b g  d' b g |
@@ -130,13 +130,13 @@ inventionTenMusic = \score {
 inventionTenMidi = \book {
   \bookOutputName "invention-no10-G-maj"
   \score { 
-    \articulate {
+    \articulate <<
       \keepWithTag midi
       <<
         \new Staff = "upper" \rightHand
         \new Staff = "lower" \leftHand
       >>
-    }
+    >>
     \midi {
       \tempo 4. = 116
     }

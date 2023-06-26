@@ -13,6 +13,7 @@ global = {
 
 rightHand = \relative e'' {
   \global
+  \set Score.tempoHideNote = ##t
   \repeat volta 2 {
     r16 e8 ds d16~ |
     d16 cs8 b a16~ |
@@ -92,8 +93,8 @@ rightHand = \relative e'' {
     fs'4.~ |
     fs16 e ds cs b a |
     gs16 e32 ds e16 gs32 fs gs16 b32 a |
-    b16 gs32 fs gs16 b32 a b16 e32 ds |
-    e16 b gs e r8 \fermataOverBarline |
+    b16 gs32 fs gs16 b32 a \tempo 8 = 94 b16 e32 ds |
+    \tempo 8 = 84 e16 b gs e r8 \fermataOverBarline |
   }
 }
 
@@ -187,7 +188,6 @@ inventionSixMusic = \score {
   \header {
     opus = "BWV 777"
   }
-  \keepWithTag layout
   \new PianoStaff \with { 
     instrumentName = \markup \huge "No. 6"
   } <<
@@ -200,7 +200,6 @@ inventionSixMusic = \score {
 inventionSixMidi = \book {
   \bookOutputName "invention-no6-E-maj"
   \score { 
-    \keepWithTag midi
     <<
       \new Staff = "upper" \rightHand
       \new Staff = "lower" \leftHand

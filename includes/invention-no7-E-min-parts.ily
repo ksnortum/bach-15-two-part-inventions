@@ -11,6 +11,7 @@ global = {
 
 rightHand = \relative b' {
   \global
+  \set Score.tempoHideNote = ##t
   r8 b16 a  g fs g e  b'8\mordent b e8.\mordent fs16 |
   ds8\prall fs16 e  ds cs ds b  b'8 a16 g
     \tag layout { fs8.\prallprall e32 fs | }
@@ -19,11 +20,20 @@ rightHand = \relative b' {
   fs8 a16 g  fs e fs d  b'8. a16  g fs e d |
   e16 fs e d  c b a g  c b a b  c d e fs |
   g16 fs e d  g8.\mordent g16  g fs e fs  fs8.\prall g16 |
-  g8 d16 c  b a b g  d'2~\startTrillSpan |
-  d1~ |
-  
-  \barNumberCheck 9
-  d8.\stopTrillSpan e16  cs8.\prall d16  d8 a16 g  fs e fs d |
+  g8 d16 c  b a b g  
+    \tag layout { 
+      d'2~\startTrillSpan |
+      d1~ |
+      
+      \barNumberCheck 9
+      d8.\stopTrillSpan 
+    }
+    \tag midi {
+      \repeat unfold 8 { d32 e } |
+      \repeat unfold 15 { d32 e } d16 ~ |
+      d8.
+    }
+    e16  cs8.\prall d16  d8 a16 g  fs e fs d |
   c'8.\mordent b16  c8. d16  b8\prall b  e8.\mordent e16 |
   e16 g fs e  d cs d b  as8 fs'16 e  d cs d b |
   e8 b'16 a!  g fs g e  as8 cs, fs as, |
@@ -39,9 +49,10 @@ rightHand = \relative b' {
   b,8 a'~ a16 fs b fs  g8 e  c'8.\mordent c16 |
   c8\prall b g'8. g16  g a g fs  fs8.\prall e16 |
   e16 d c b  a g a fs  ds'8 fs, b8.\mordent c16 |
-  a8.\prall g16 \tag layout { fs8.\prall e16 }
-                \tag midi   { \tuplet 3/2 { fs32 g fs g fs g } fs16 e }
-                e2\fermata |
+  \tempo 4 = 74 a8.\prall g16 
+    \tag layout { fs8.\prall e16 }
+    \tag midi   { \tuplet 3/2 { \tempo 4 = 64 fs32 g fs g fs g } fs16 e }
+    e2\fermata |
   \bar "|."
 }
 
@@ -64,11 +75,20 @@ leftHand = \relative e {
   g16 fs g e  d'8. e16  cs8 g'16 fs  e d e cs |
   d16 cs d b  fs'8 fs,  b16 c b a  gs fs gs e |
   a16 b a g  fs e fs d  g a g fs  e d e cs |
-  ds16 cs ds b  e ds e e, b'2~\startTrillSpan |
-  b1~ |
+  ds16 cs ds b  e ds e e, 
+    \tag layout {
+      b'2~\startTrillSpan |
+      b1~ |
   
-  \barNumberCheck 17
-  b2.~ b16\stopTrillSpan c' b a |
+      \barNumberCheck 17
+      b2.~ b16\stopTrillSpan 
+    }
+    \tag midi {
+      \repeat unfold 8 { b32 c } |
+      \repeat unfold 16 { b32 c } |
+      \repeat unfold 11 { b32 c } b16 ~ b
+    }
+    c'16 b a |
   g16 fs g b  e b a g  fs e fs a  ds a g fs |
   e16 ds e g  c g fs e  ds8 b r4 |
   r16 g' fs e  ds cs ds b  e d c b  a g a fs |
@@ -96,13 +116,13 @@ inventionSevenMusic = \score {
 inventionSevenMidi = \book {
   \bookOutputName "invention-no7-E-min"
   \score { 
-    \articulate {
+    \articulate <<
       \keepWithTag midi
       <<
         \new Staff = "upper" \rightHand
         \new Staff = "lower" \leftHand
       >>
-    }
+    >>
     \midi {
       \tempo 4 = 84
     }

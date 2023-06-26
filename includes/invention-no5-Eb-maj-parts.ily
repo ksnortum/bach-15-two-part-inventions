@@ -11,6 +11,7 @@ global = {
 
 rightHand = \relative ef' {
   \global
+  \set Score.tempoHideNote = ##t
   r8 ef16 d ef8 f g4\mordent af |
   r8 f16 ef f8 g af4\mordent bf |
   g8 c bf\prall af  g16 af bf af  g8 f |
@@ -51,9 +52,10 @@ rightHand = \relative ef' {
   \tag layout { 
     \appoggiatura { af8 } g8~ g32 f ef f  f4\downmordent 
   }
-    \tag midi {
-      af16 g16. f32 ef f  g f ef f \tuplet 3/2 { g32 f g f ef f }
-    }
+  \tag midi {
+    \tempo 4 = 78 af16 g16. f32 ef f  g f ef f \tempo 4 = 72 
+      \tuplet 3/2 { g32 f g f ef f }
+  }
     ef2\fermata | 
   \bar "|."
 }
@@ -101,10 +103,6 @@ leftHand = \relative ef {
   ef8 g, af bf ef,2\fermata |
 }
 
-dynamics = {
-  
-}
-
 inventionFiveMusic = \score { 
   \header {
     opus = "BWV 776"
@@ -123,14 +121,14 @@ inventionFiveMusic = \score {
 
 inventionFiveMidi = \book {
   \bookOutputName "invention-no5-Eb-maj"
-  \score { 
-    \articulate {
+  \score {
+    \articulate <<
       \keepWithTag midi
       <<
-        \new Staff = "upper" << \rightHand \dynamics >>
-        \new Staff = "lower" << \leftHand \dynamics >>
+        \new Staff = "upper" \rightHand
+        \new Staff = "lower" \leftHand
       >>
-    }
+    >>
     \midi {
       \tempo 4 = 84
     }

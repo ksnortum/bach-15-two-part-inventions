@@ -3,8 +3,6 @@
 \version "2.24.0"
 \language "english"
 
-% \include "global-variables.ily"
-
 global = {
   \time 4/4
   \key c \minor
@@ -13,6 +11,7 @@ global = {
 
 rightHand = \relative c'' {
   \global
+  \set Score.tempoHideNote = ##t
   r8 c16 b  c d ef g, af bf af f  f' ef d c |
   b16 af' g f  ef d c b  c d c d  \tag layout { d8.\trill c32 d }
                                   \tag midi   { ef32 d ef d ef d c d } |
@@ -47,9 +46,9 @@ rightHand = \relative c'' {
                                    
   \barNumberCheck 25
   ef16 d c d  ef f g8 g\prall f r f |
-  f8\prall ef16 d  g f af g  g8. af16  
+  f8\prall ef16 d  g f af g  \tempo 4 = 60 g8. af16  
     \tag layout { d,8.\trill c16 | }
-    \tag midi   { \tuplet 3/2 { d32 ef d ef d ef } d16 c }
+    \tag midi   { \tempo 4 = 50 \tuplet 3/2 { d32 ef d ef d ef } d16 c }
   c1\fermata |
   \bar "|."
 }
@@ -113,14 +112,14 @@ inventionTwoMusic = \score {
 
 inventionTwoMidi = \book {
   \bookOutputName "invention-no2-C-min"
-  \score { 
-    \articulate {
+  \score {
+    \articulate <<
       \keepWithTag midi
       <<
         \new Staff = "upper" \rightHand
         \new Staff = "lower" \leftHand
       >>
-    }
+    >>
     \midi {
       \tempo 4 = 69
     }

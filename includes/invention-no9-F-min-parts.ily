@@ -67,6 +67,7 @@ rightHand = \relative c'' {
 leftHand = \relative f, {
   \clef bass
   \global
+  \set Score.tempoHideNote = ##t
   f8 f'~ f16 g af g  f ef df c |
   bf8 g'~ g16 af bf af  g f e d |
   c16 d e f  g af bf g  f e f e |
@@ -105,7 +106,7 @@ leftHand = \relative f, {
   bf16 c df8~ df16 c bf af  g f e d |
   c16 d e f  g af bf g  f e f e |
   f4 r16 c' d e  f e f g |
-  af16 g af bf  c8 bf c c, |
+  \tempo 4 = 66 af16 g af bf  \tempo 4 = 60 c8 bf \tempo 4 = 54 c c, |
   f,2.\fermata |
 }
 
@@ -123,18 +124,14 @@ inventionNineMusic = \score {
   \layout {}
 }
 
-%\include "articulate.ly"
-
 inventionNineMidi = \book {
   \bookOutputName "invention-no9-F-min"
   \score { 
-    %\articulate {
-      \keepWithTag midi
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
-    %}
+    \keepWithTag midi
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
+    >>
     \midi {
       \tempo 4 = 72
     }

@@ -11,6 +11,7 @@ global = {
 
 rightHand = \relative bf' {
   \global
+  \set Score.tempoHideNote = ##t
   r16 bf32 c d c bf16  f' d bf' f  d f32 ef d ef f16  bf, d f, af |
   g16 ef32 f g f ef16  bf' g ef' bf  g bf32 af g af bf16  ef, g c, ef |
   a,16 c32 d ef d c16  a' f c' a  ef' f,32 g a g f16  c' a f' c |
@@ -33,7 +34,8 @@ rightHand = \relative bf' {
   ef16 g32 a bf a g16  c16 ef,32 d c d ef16  d4  r16 bf'32 c d c bf16 |
   f'16 d bf' f  d f32 ef d ef f16  bf,16 ef bf ef  g, ef32 f g f ef16 |
   bf'16 g ef' bf  g bf32 af g af bf16  ef,8 ef'~  ef16 ef32 d c d ef16 |
-  f,8 ef'~ ef16 c32 d ef d c16  f d32 c bf c d16  f, bf c a |
+  f,8 ef'~ ef16 c32 d ef d c16  \tempo 4 = 60 f d32 c bf c d16  \tempo 4 = 50
+    f, bf c a |
   bf1\fermata |
   \bar "|."
 }
@@ -72,7 +74,6 @@ inventionFourteenMusic = \score {
   \header {
     opus = "BWV 785"
   }
-  \keepWithTag layout
   \new PianoStaff \with { 
     instrumentName = \markup \huge "No. 14"
   } <<
@@ -85,7 +86,6 @@ inventionFourteenMusic = \score {
 inventionFourteenMidi = \book {
   \bookOutputName "invention-no14-Bb-maj"
   \score { 
-    \keepWithTag midi
     <<
       \new Staff = "upper" \rightHand
       \new Staff = "lower" \leftHand

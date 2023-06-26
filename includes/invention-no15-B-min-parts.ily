@@ -16,6 +16,7 @@ global = {
 
 rightHand = \relative b' {
   \global
+  \set Score.tempoHideNote = ##t
   r8 b16 as b8 fs g\prall fs b fs |
   fs8\prall e cs' e,  e\prall d16 cs  d e fs e |
   fs8\mordent r r16 a gs a  b cs b gs  a b a fs |
@@ -40,7 +41,8 @@ rightHand = \relative b' {
   g'16 e fs cs  d e fs d  e fs e cs  d e d b |
   cs16 d cs b  as b cs as  fs8 b16 as  b8 fs |
   g8\prall fs b fs  fs\prall e cs' e, |
-  e8\prall d16 cs  d fs e g  fs8. d'16  as8.\prall b16 |
+  e8\prall d16 cs  d fs e g  \tempo 4 = 82 fs8. d'16  \tempo 4 = 72 
+    as8.\prall b16 |
   b1\fermata |
   \bar "|."
 }
@@ -80,7 +82,6 @@ inventionFifteenMusic = \score {
   \header {
     opus = "BWV 786"
   }
-  \keepWithTag layout
   \new PianoStaff \with { 
     instrumentName = \markup \huge "No. 15"
   } <<
@@ -96,7 +97,6 @@ inventionFifteenMidi = \book {
   \bookOutputName "invention-no15-B-min"
   \score { 
     \articulate {
-      \keepWithTag midi
       <<
         \new Staff = "upper" \rightHand
         \new Staff = "lower" \leftHand

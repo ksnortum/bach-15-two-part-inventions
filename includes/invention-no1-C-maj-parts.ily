@@ -11,6 +11,7 @@ global = {
 
 rightHand = \relative c' {
   \global
+  \set Score.tempoHideNote = ##t
   r16 c d e  f d e c  g'8 c b\mordent c |
   d16 g, a b  c a b g  d'8 g f\mordent g |
   e16 a g f  e g f a  g f e d  c e d f |
@@ -35,7 +36,7 @@ rightHand = \relative c' {
   f16 d e f  g e f d  e2~ |
   e16 c d e  f d e c  d e f g  a f g e |
   f16 g a b  c a b g  c8 g e\prall d16 c |
-  c16 bf a g  f a g bf  a b c e,  d c' f, b |
+  c16 bf a g  f a g bf  \tempo 4 = 82 a b c e,  \tempo 4 = 72 d c' f, b |
   <e, g c>1\arpeggio\fermata |
   \bar "|."
 }
@@ -90,12 +91,12 @@ inventionOneMusic = \score {
 inventionOneMidi = \book {
   \bookOutputName "invention-no1-C-maj"
   \score { 
-    \articulate {
+    \articulate <<
       <<
         \new Staff = "upper" \rightHand
         \new Staff = "lower" \leftHand
       >>
-    }
+    >>
     \midi {
       \tempo 4 = 92
     }

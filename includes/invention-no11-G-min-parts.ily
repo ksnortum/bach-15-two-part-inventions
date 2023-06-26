@@ -3,8 +3,6 @@
 \version "2.24.0"
 \language "english"
 
-% \include "global-variables.ily"
-
 global = {
   \time 4/4
   \key g \minor
@@ -13,6 +11,7 @@ global = {
 
 rightHand = \relative d' {
   \global
+  \set Score.tempoHideNote = ##t
   r16 d e fs  g a bf g  a g fs e  d c' bf a |
   g16 f e d  c bf' a g  d' c bf d  c bf a c |
   bf16 a g a  bf c d e  f8 d r d |
@@ -20,11 +19,11 @@ rightHand = \relative d' {
   g8 d16 c  d ef f d  ef d c bf  a g' f ef |
   d16 c d e  f g a f  g f e d  cs bf' a g |
   f4~\mordent f16 g a bf  cs, d e d  cs8 c |
-  b16 c d c  b8 bf  a d4\mordent cs8\prall |
+  b16 c d c  b8 bf  a d4\mordent cs8 |
   
   \barNumberCheck 9
-  a8 f'4\mordent e8\prall  a,8 a'4\parenthesize \mordent 
-    g8~\parenthesize \prall |
+  a8 f'4\mordent e8  a,8 a'4\parenthesize \mordent 
+    g8~ |
   g8 f16\prall e  f d e cs  
     \tag layout { \after 8*7/8 \turn d8.\mordent e16  e8.\upmordent d16 | }
     \tag midi { 
@@ -45,7 +44,7 @@ rightHand = \relative d' {
   d'16 c bf d  c bf a c  bf a g bf  a g fs a |
   g16 a bf c  d e fs g  a fs g a  d,4~ |
   d16 c ef d  c bf a c  fs, a bf a  g f ef g |
-  cs,16 g' a bf  d, a' g\mordent fs  g2\fermata |
+  \tempo 4 = 68 cs,16 g' a bf  \tempo 4 = 60 d, a' g\mordent fs  g2\fermata |
   \bar "|."
 }
 

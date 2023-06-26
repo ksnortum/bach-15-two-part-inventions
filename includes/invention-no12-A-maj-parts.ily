@@ -11,6 +11,7 @@ global = {
 
 rightHand = \relative a' {
   \global
+  \set Score.tempoHideNote = ##t
   a4\mordent a8 a4\mordent a8 
     \tag layout { b2.~\upmordent | }
     \tag midi   { a32 b \repeat unfold 9 { cs32 b } a b16.~ | }
@@ -39,7 +40,8 @@ rightHand = \relative a' {
   cs16 a cs e a e  cs' a cs e a fs  d fs a fs d fs  b, d fs d b d |
   gs,8 b d  fs e b  fs' e a,  e' d gs, |
   d'8 cs e,  fs16 gs a b cs d  gs, e gs b e b  gs' e b' gs e gs |
-  a8 e cs  a16 d cs b e8~ e16 fs cs8 b16 a a4.\fermata |
+  a8 e cs  a16 d cs b \tempo 4. = 62 e8~ e16 fs \tempo 4. = 52 cs8 b16 a 
+    a4.\fermata |
   \bar "|."
 }
 

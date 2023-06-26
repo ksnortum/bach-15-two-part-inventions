@@ -11,6 +11,7 @@ global = {
 
 rightHand = \relative e' {
   \global
+  \set Score.tempoHideNote = ##t
   r16 e a c  b e, b' d  c8 e gs, e' |
   a,16 e a c  b e, b' d  c8 a r4 |
   r16 e' c e  a, c e, g  f8 a d f~ |
@@ -41,7 +42,8 @@ rightHand = \relative e' {
   b16 c d e  f d gs d  b' d, c a'  f d b d |
   
   \barNumberCheck 25
-  gs,16 b c a  e a b gs  a e c e  a,4\fermata |
+  gs,16 b c a  \tempo 4 = 96 e a b gs  \tempo 4 = 80 a e c e  \tempo 4 = 60
+    a,4\fermata |
   \bar "|."
 }
 
@@ -85,7 +87,6 @@ inventionThirteenMusic = \score {
   \header {
     opus = "BWV 784"
   }
-  \keepWithTag layout
   \new PianoStaff \with { 
     instrumentName = \markup \huge "No. 13"
   } <<
@@ -98,7 +99,6 @@ inventionThirteenMusic = \score {
 inventionThirteenMidi = \book {
   \bookOutputName "invention-no13-A-min"
   \score { 
-    \keepWithTag midi
     <<
       \new Staff = "upper" \rightHand
       \new Staff = "lower" \leftHand
