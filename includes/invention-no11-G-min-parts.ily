@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 4/4
   \key g \minor
@@ -78,7 +80,8 @@ leftHand = \relative g, {
   bf8 a16 g  d'8\mordent d,  g2\fermata |
 }
 
-inventionElevenMusic = \score { 
+inventionElevenMusic = 
+\score { 
   \header {
     opus = "BWV 782"
   }
@@ -94,18 +97,19 @@ inventionElevenMusic = \score {
 
 \include "articulate.ly"
 
-inventionElevenMidi = \book {
-  \bookOutputName "invention-no11-G-min"
-  \score { 
-    \articulate {
-      \keepWithTag midi
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
-    }
-    \midi {
-      \tempo 4 = 76
-    }
+inventionElevenMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no11-G-min" % see midi-title.ily
+  }
+  \articulate {
+    \keepWithTag midi
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
+    >>
+  }
+  \midi {
+    \tempo 4 = 76
   }
 }

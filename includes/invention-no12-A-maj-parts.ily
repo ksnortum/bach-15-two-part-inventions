@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 12/8
   \key a \major
@@ -83,7 +85,8 @@ leftHand = \relative a {
   cs16 d cs b a gs  fs fs' e d cs b  cs d e8 e,  a4.\fermata |
 }
 
-inventionTwelveMusic = \score { 
+inventionTwelveMusic = 
+\score { 
   \header {
     opus = "BWV 783"
   }
@@ -99,18 +102,19 @@ inventionTwelveMusic = \score {
 
 \include "articulate.ly"
 
-inventionTwelveMidi = \book {
-  \bookOutputName "invention-no12-A-maj"
-  \score { 
-    \articulate {
-      \keepWithTag midi
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
-    }
-    \midi {
-      \tempo 4. = 72
-    }
+inventionTwelveMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no12-A-maj" % see midi-title.ily
+  }
+  \articulate {
+    \keepWithTag midi
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
+    >>
+  }
+  \midi {
+    \tempo 4. = 72
   }
 }

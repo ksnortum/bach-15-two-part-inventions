@@ -11,6 +11,3 @@ fermataUnderBarline = {
   \tweak direction #DOWN
   \textEndMark \markup { \musicglyph "scripts.dfermata" }
 }
-
-% staffDown = \change Staff = "lower"
-% staffUp   = \change Staff = "upper"

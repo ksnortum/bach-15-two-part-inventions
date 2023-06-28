@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 3/8
   \key d \minor
@@ -164,7 +166,8 @@ leftHand = \relative d {
   d,4.\fermata |
 }
 
-inventionFourMusic = \score { 
+inventionFourMusic = 
+\score { 
   \header {
     opus = "BWV 775"
   }
@@ -180,18 +183,19 @@ inventionFourMusic = \score {
 
 \include "articulate.ly"
 
-inventionFourMidi = \book {
-  \bookOutputName "invention-no4-D-min"
-  \score {
-    \articulate <<
-      \keepWithTag midi
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
+inventionFourMidi = 
+\score {
+  \header {
+    midiOutputFile = "invention-no4-D-min" % see midi-title.ily
+  }
+  \articulate <<
+    \keepWithTag midi
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
     >>
-    \midi {
-      \tempo 4. = 76
-    }
+  >>
+  \midi {
+    \tempo 4. = 76
   }
 }

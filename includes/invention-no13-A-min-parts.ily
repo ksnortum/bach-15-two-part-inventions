@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 4/4
   \key a \minor
@@ -83,7 +85,8 @@ leftHand = \relative a, {
   f8 ds e e'  a,2\fermata |
 }
 
-inventionThirteenMusic = \score { 
+inventionThirteenMusic = 
+\score { 
   \header {
     opus = "BWV 784"
   }
@@ -96,15 +99,16 @@ inventionThirteenMusic = \score {
   \layout {}
 }
 
-inventionThirteenMidi = \book {
-  \bookOutputName "invention-no13-A-min"
-  \score { 
-    <<
-      \new Staff = "upper" \rightHand
-      \new Staff = "lower" \leftHand
-    >>
-    \midi {
-      \tempo 4 = 108
-    }
+inventionThirteenMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no13-A-min" % see midi-title.ily
+  }
+  <<
+    \new Staff = "upper" \rightHand
+    \new Staff = "lower" \leftHand
+  >>
+  \midi {
+    \tempo 4 = 108
   }
 }

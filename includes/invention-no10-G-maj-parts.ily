@@ -4,6 +4,7 @@
 \language "english"
 
 \include "global-variables.ily"
+\include "midi-title.ily"
 
 global = {
   \time 9/8
@@ -111,7 +112,8 @@ leftHand = \relative d {
   g4.~ g8 b d  g4. \fermataUnderBarline |
 }
 
-inventionTenMusic = \score { 
+inventionTenMusic = 
+\score { 
   \header {
     opus = "BWV 781"
   }
@@ -127,18 +129,19 @@ inventionTenMusic = \score {
 
 \include "articulate.ly"
 
-inventionTenMidi = \book {
-  \bookOutputName "invention-no10-G-maj"
-  \score { 
-    \articulate <<
-      \keepWithTag midi
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
+inventionTenMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no10-G-maj" % see midi-title.ily
+  }
+  \articulate <<
+    \keepWithTag midi
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
     >>
-    \midi {
-      \tempo 4. = 116
-    }
+  >>
+  \midi {
+    \tempo 4. = 116
   }
 }

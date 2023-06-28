@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 3/4
   \key f \minor
@@ -110,7 +112,8 @@ leftHand = \relative f, {
   f,2.\fermata |
 }
 
-inventionNineMusic = \score { 
+inventionNineMusic = 
+\score { 
   \header {
     opus = "BWV 780"
   }
@@ -124,16 +127,17 @@ inventionNineMusic = \score {
   \layout {}
 }
 
-inventionNineMidi = \book {
-  \bookOutputName "invention-no9-F-min"
-  \score { 
-    \keepWithTag midi
-    <<
-      \new Staff = "upper" \rightHand
-      \new Staff = "lower" \leftHand
-    >>
-    \midi {
-      \tempo 4 = 72
-    }
+inventionNineMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no9-F-min" % see midi-title.ily
+  }
+  \keepWithTag midi
+  <<
+    \new Staff = "upper" \rightHand
+    \new Staff = "lower" \leftHand
+  >>
+  \midi {
+    \tempo 4 = 72
   }
 }

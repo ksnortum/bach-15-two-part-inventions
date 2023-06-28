@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 4/4
   \key b \minor
@@ -78,7 +80,8 @@ leftHand = \relative b, {
   b1\fermata |
 }
 
-inventionFifteenMusic = \score { 
+inventionFifteenMusic = 
+\score { 
   \header {
     opus = "BWV 786"
   }
@@ -93,17 +96,18 @@ inventionFifteenMusic = \score {
 
 \include "articulate.ly"
 
-inventionFifteenMidi = \book {
-  \bookOutputName "invention-no15-B-min"
-  \score { 
-    \articulate {
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
-    }
-    \midi {
-      \tempo 4 = 92
-    }
+inventionFifteenMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no15-B-min" % see midi-title.ily
+  }
+  \articulate {
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
+    >>
+  }
+  \midi {
+    \tempo 4 = 92
   }
 }

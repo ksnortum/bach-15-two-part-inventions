@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 3/8
   \key d \major
@@ -195,7 +197,8 @@ dynamics = {
   s4 s8\mf |
 }
 
-inventionThreeMusic = \score { 
+inventionThreeMusic = 
+\score { 
   \header {
     opus = "BWV 774"
   }
@@ -210,17 +213,18 @@ inventionThreeMusic = \score {
 
 \include "articulate.ly"
 
-inventionThreeMidi = \book {
-  \bookOutputName "invention-no3-D-maj"
-  \score { 
-    \articulate <<
-      <<
-        \new Staff = "upper" << \rightHand \dynamics >>
-        \new Staff = "lower" << \leftHand \dynamics >>
-      >>
+inventionThreeMidi = 
+\score {
+  \header {
+    midiOutputFile = "invention-no3-D-maj" % see midi-title.ily
+  }
+  \articulate <<
+    <<
+      \new Staff = "upper" << \rightHand \dynamics >>
+      \new Staff = "lower" << \leftHand \dynamics >>
     >>
-    \midi {
-      \tempo 4. = 60
-    }
+  >>
+  \midi {
+    \tempo 4. = 60
   }
 }

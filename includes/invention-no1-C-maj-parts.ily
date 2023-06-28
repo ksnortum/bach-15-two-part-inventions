@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 4/4
   \key c \major
@@ -73,7 +75,8 @@ leftHand = \relative c {
   <c, c'>1\arpeggio\fermata
 }
 
-inventionOneMusic = \score { 
+inventionOneMusic = 
+\score { 
   \header {
     opus = "BWV 772"
   }
@@ -88,17 +91,18 @@ inventionOneMusic = \score {
 
 \include "articulate.ly"
 
-inventionOneMidi = \book {
-  \bookOutputName "invention-no1-C-maj"
-  \score { 
-    \articulate <<
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
+inventionOneMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no1-C-maj" % see midi-title.ily
+  }
+  \articulate <<
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
     >>
-    \midi {
-      \tempo 4 = 92
-    }
+  >>
+  \midi {
+    \tempo 4 = 92
   }
 }

@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 4/4
   \key ef \major
@@ -103,7 +105,8 @@ leftHand = \relative ef {
   ef8 g, af bf ef,2\fermata |
 }
 
-inventionFiveMusic = \score { 
+inventionFiveMusic = 
+\score { 
   \header {
     opus = "BWV 776"
   }
@@ -119,18 +122,19 @@ inventionFiveMusic = \score {
 
 \include "articulate.ly"
 
-inventionFiveMidi = \book {
-  \bookOutputName "invention-no5-Eb-maj"
-  \score {
-    \articulate <<
-      \keepWithTag midi
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
+inventionFiveMidi = 
+\score {
+  \header {
+    midiOutputFile = "invention-no5-Eb-maj" % see midi-title.ily
+  }
+  \articulate <<
+    \keepWithTag midi
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
     >>
-    \midi {
-      \tempo 4 = 84
-    }
+  >>
+  \midi {
+    \tempo 4 = 84
   }
 }

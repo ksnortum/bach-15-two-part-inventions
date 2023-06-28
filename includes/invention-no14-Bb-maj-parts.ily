@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 4/4
   \key bf \major
@@ -70,7 +72,8 @@ leftHand = \relative bf {
   bf1\fermata |
 }
 
-inventionFourteenMusic = \score { 
+inventionFourteenMusic = 
+\score { 
   \header {
     opus = "BWV 785"
   }
@@ -83,15 +86,16 @@ inventionFourteenMusic = \score {
   \layout {}
 }
 
-inventionFourteenMidi = \book {
-  \bookOutputName "invention-no14-Bb-maj"
-  \score { 
-    <<
-      \new Staff = "upper" \rightHand
-      \new Staff = "lower" \leftHand
-    >>
-    \midi {
-      \tempo 4 = 69
-    }
+inventionFourteenMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no14-Bb-maj" % see midi-title.ily
+  }
+  <<
+    \new Staff = "upper" \rightHand
+    \new Staff = "lower" \leftHand
+  >>
+  \midi {
+    \tempo 4 = 69
   }
 }

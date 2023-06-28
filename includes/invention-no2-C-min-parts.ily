@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 4/4
   \key c \minor
@@ -94,7 +96,8 @@ leftHand = \relative c' {
   c,1\fermata |
 }
 
-inventionTwoMusic = \score { 
+inventionTwoMusic = 
+\score { 
   \header {
     opus = "BWV 773"
   }
@@ -110,18 +113,19 @@ inventionTwoMusic = \score {
 
 \include "articulate.ly"
 
-inventionTwoMidi = \book {
-  \bookOutputName "invention-no2-C-min"
-  \score {
-    \articulate <<
-      \keepWithTag midi
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
+inventionTwoMidi = 
+\score {
+  \header {
+    midiOutputFile = "invention-no2-C-min" % see midi-title.ily
+  }
+  \articulate <<
+    \keepWithTag midi
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
     >>
-    \midi {
-      \tempo 4 = 69
-    }
+  >>
+  \midi {
+    \tempo 4 = 69
   }
 }

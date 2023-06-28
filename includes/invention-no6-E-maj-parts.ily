@@ -4,6 +4,7 @@
 \language "english"
 
 \include "global-variables.ily"
+\include "midi-title.ily"
 
 global = {
   \time 3/8
@@ -184,7 +185,8 @@ leftHand = \relative e {
   }
 }
 
-inventionSixMusic = \score { 
+inventionSixMusic = 
+\score { 
   \header {
     opus = "BWV 777"
   }
@@ -197,15 +199,16 @@ inventionSixMusic = \score {
   \layout {}
 }
 
-inventionSixMidi = \book {
-  \bookOutputName "invention-no6-E-maj"
-  \score { 
-    <<
-      \new Staff = "upper" \rightHand
-      \new Staff = "lower" \leftHand
-    >>
-    \midi {
-      \tempo 8 = 104
-    }
+inventionSixMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no6-E-maj" % see midi-title.ily
+  }
+  <<
+    \new Staff = "upper" \rightHand
+    \new Staff = "lower" \leftHand
+  >>
+  \midi {
+    \tempo 8 = 104
   }
 }

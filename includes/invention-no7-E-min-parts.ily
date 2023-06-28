@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 4/4
   \key e \minor
@@ -97,7 +99,8 @@ leftHand = \relative e {
   ds8 e b' b, e,2\fermata |
 }
 
-inventionSevenMusic = \score { 
+inventionSevenMusic = 
+\score { 
   \header {
     opus = "BWV 778"
   }
@@ -113,18 +116,19 @@ inventionSevenMusic = \score {
 
 \include "articulate.ly"
 
-inventionSevenMidi = \book {
-  \bookOutputName "invention-no7-E-min"
-  \score { 
-    \articulate <<
-      \keepWithTag midi
-      <<
-        \new Staff = "upper" \rightHand
-        \new Staff = "lower" \leftHand
-      >>
+inventionSevenMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no7-E-min" % see midi-title.ily
+  }
+  \articulate <<
+    \keepWithTag midi
+    <<
+      \new Staff = "upper" \rightHand
+      \new Staff = "lower" \leftHand
     >>
-    \midi {
-      \tempo 4 = 84
-    }
+  >>
+  \midi {
+    \tempo 4 = 84
   }
 }

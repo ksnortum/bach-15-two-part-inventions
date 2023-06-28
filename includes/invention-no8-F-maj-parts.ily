@@ -3,6 +3,8 @@
 \version "2.24.0"
 \language "english"
 
+\include "midi-title.ily"
+
 global = {
   \time 3/4
   \key f \major
@@ -104,7 +106,8 @@ leftHand = \relative f {
   f4\fermata r r |
 }
 
-inventionEightMusic = \score { 
+inventionEightMusic = 
+\score { 
   \header {
     opus = "BWV 779"
   }
@@ -117,15 +120,16 @@ inventionEightMusic = \score {
   \layout {}
 }
 
-inventionEightMidi = \book {
-  \bookOutputName "invention-no8-F-maj"
-  \score { 
-    <<
-      \new Staff = "upper" \rightHand
-      \new Staff = "lower" \leftHand
-    >>
-    \midi {
-      \tempo 4 = 120
-    }
+inventionEightMidi = 
+\score { 
+  \header {
+    midiOutputFile = "invention-no8-F-maj" % see midi-title.ily
+  }
+  <<
+    \new Staff = "upper" \rightHand
+    \new Staff = "lower" \leftHand
+  >>
+  \midi {
+    \tempo 4 = 120
   }
 }
