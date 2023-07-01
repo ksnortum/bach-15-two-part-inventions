@@ -42,7 +42,7 @@ rightHand = \relative b' {
   b8. cs16  cs8.\prall b16  b8 d e, d' |
   c8 a d, c'  b d g b, |
   a8 fs' g, e'  ds8\prall fs16 e  ds cs b a |
-  g16 fs g b  e b a g  fs e fs a  ds a g fs |
+  g16 fs g b  e b a g  fs e fs a  d a g fs |
   
   \barNumberCheck 17
   e16 ds e g  c g fs e  ds cs ds fs  b8 b |
