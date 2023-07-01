@@ -25,7 +25,7 @@ rightHand = \relative b' {
   gs16 a gs fs  es gs fs es  cs'8 fs,16 es  fs a gs b |
   a16 b cs d  gs,8.\prall fs16  fs8  fs'16 es  fs8 cs |
   d8\prall cs fs cs  cs\prall b gs' b, |
-  b8\prall a16 gs  a b a es  fs8 fs'16 es  fs8 cs |
+  b8\prall a16 gs  a b a es  fs8 fs'16 e  fs8 cs |
   d16 e d b  e b fs' b,  g' a g e  a e b' d, |
   
   \barNumberCheck 9
