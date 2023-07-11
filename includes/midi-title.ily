@@ -1,3 +1,5 @@
+\version "2.24.1"
+
 %%%
 %%% midi-title.ily - Create custom MIDI file names
 %%%
