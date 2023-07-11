@@ -1,4 +1,4 @@
-# 15-two-part-inventions
+# bach-15-two-part-inventions
 LilyPond source files for Johann Sebastian Bach's 15 Two-Part Inventions.
 
 ## Requirements
