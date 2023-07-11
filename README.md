@@ -5,7 +5,7 @@ LilyPond source files for Johann Sebastian Bach's 15 Two-Part Inventions.
 LilyPond version 2.24.0 or higher.
 
 ## Producing PDFs or other outputs
-You can always go to my latest release [here](https://github.com/ksnortum/15-two-part-inventions/releases/latest), or use [Frescobaldi](https://www.frescobaldi.org/), or create the PDFs from the command line.  It is assumed that `lilypond` is in the PATH of your system.
+You can always go to my latest release [here](https://github.com/ksnortum/bach-15-two-part-inventions/releases/latest), or use [Frescobaldi](https://www.frescobaldi.org/), or create the PDFs from the command line.  It is assumed that `lilypond` is in the PATH of your system.
 
 `cd` into your installation directory and type:
 
