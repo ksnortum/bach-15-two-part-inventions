@@ -3,6 +3,7 @@
 \version "2.24.0"
 \language "english"
 
+\include "global-variables.ily"
 \include "midi-title.ily"
 
 global = {
@@ -220,8 +221,8 @@ inventionThreeMidi =
   }
   \articulate <<
     <<
-      \new Staff = "upper" << \rightHand \dynamics >>
-      \new Staff = "lower" << \leftHand \dynamics >>
+      \new Staff = "upper" << \upperMidiInstrument \rightHand \dynamics >>
+      \new Staff = "lower" << \lowerMidiInstrument \leftHand \dynamics >>
     >>
   >>
   \midi {

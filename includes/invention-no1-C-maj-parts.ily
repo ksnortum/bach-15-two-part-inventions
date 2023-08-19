@@ -3,6 +3,7 @@
 \version "2.24.0"
 \language "english"
 
+\include "global-variables.ily"
 \include "midi-title.ily"
 
 global = {
@@ -98,8 +99,8 @@ inventionOneMidi =
   }
   \articulate <<
     <<
-      \new Staff = "upper" \rightHand
-      \new Staff = "lower" \leftHand
+      \new Staff = "upper" { \upperMidiInstrument \rightHand }
+      \new Staff = "lower" { \lowerMidiInstrument \leftHand }
     >>
   >>
   \midi {

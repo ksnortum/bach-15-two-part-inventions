@@ -137,8 +137,8 @@ inventionTenMidi =
   \articulate <<
     \keepWithTag midi
     <<
-      \new Staff = "upper" \rightHand
-      \new Staff = "lower" \leftHand
+      \new Staff = "upper" { \upperMidiInstrument \rightHand }
+      \new Staff = "lower" { \lowerMidiInstrument \leftHand }
     >>
   >>
   \midi {

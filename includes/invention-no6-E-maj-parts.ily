@@ -205,8 +205,8 @@ inventionSixMidi =
     midiOutputFile = "invention-no6-E-maj" % see midi-title.ily
   }
   <<
-    \new Staff = "upper" \rightHand
-    \new Staff = "lower" \leftHand
+    \new Staff = "upper" { \upperMidiInstrument \rightHand }
+    \new Staff = "lower" { \lowerMidiInstrument \leftHand }
   >>
   \midi {
     \tempo 8 = 104
