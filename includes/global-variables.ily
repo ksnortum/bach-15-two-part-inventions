@@ -11,3 +11,11 @@ fermataUnderBarline = {
   \tweak direction #DOWN
   \textEndMark \markup { \musicglyph "scripts.dfermata" }
 }
+
+upperMidiInstrument = {
+  \set Staff.midiInstrument = #"acoustic grand"
+}
+
+lowerMidiInstrument = {
+  \set Staff.midiInstrument = #"acoustic grand"
+}
